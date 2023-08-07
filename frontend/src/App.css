@@ -68,24 +68,36 @@ body{
 }
 
 .items{
-  display: flex;
-  position: relative;
+  align-content: center;
+  padding-left:80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   margin-top: 130px;
+  justify-content: space-around;
+}
+
+.item{
+  align-items: center;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  width: fit-content;
+  border-radius: 15px;
+  background-color: rgb(240, 242, 245);
 }
 
 .delete-edit{
   display: flex;
+  margin-bottom: 40px;
+  margin-left: 40px;
 }
 
-.delete{
-  margin: 0px 10px 0px 300px ;
+.delete, .edit{
+  margin: 0px 20px 0px 20px ;
 }
 
 .toolbar{
-  display: flex;
   flex-direction: column;
-}
-
-.each-row-item{
-  font-size: 10px;
+  font-size: 20px;
+  height: 300px;
+  padding: 50px;
 }

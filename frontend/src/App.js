@@ -74,17 +74,17 @@ class App extends Component{
     }
     return this.setState({viewCompleted: false});
   }
-  //render the tags of events and liked event
+  //render the tags of events and liked event active my-5 tab-list
   renderTabList = () => {
     return (
-      <div className='my-5 tab-list navbar'>
+      <div className='  navbar'>
         <span onClick={() => this.displayCompleted(true)}
-          className={this.state.viewCompleted ? "active space" : "space"}
+          className={this.state.viewCompleted ? "space" : "space"}
         >
         Likes
         </span>
         <span onClick={() => this.displayCompleted(false)}
-          className={this.state.viewCompleted ? "" : "active"}
+          className={this.state.viewCompleted ? "" : ""}
         >
         Events
         </span>
@@ -105,25 +105,21 @@ class App extends Component{
     return newItems.map(item => (
       <div className='item'>
         <div className='toolbar'>
-          <ul>
-            <li key={item.id} className=" toolbar"
-            >
-              <div className='each-row-item'><h1>{item.event_name}</h1></div>
-              <div className='each-row-item'><h1>{item.data}</h1></div>
-              <div className='each-row-item'><h1>{item.location}</h1></div>
-              <div className='each-row-item'><h1>{item.time}</h1></div>
-              <div className='each-row-item'><h1>{item.is_liked}</h1></div>
-            </li>
-          </ul>
-        </div>
-        <div className='delete-edit'>
-          <div>
-            <button className="btn btn-primary delete" onClick={() => this.handleDelete(item)}> Delete </button>
+          <div className='each-row-item'><h2>{item.event_name}</h2></div>
+          <div className='each-row-item'><span>{item.data}</span></div>
+          <div className='each-row-item'><span>{item.location}</span></div>
+          <div className='each-row-item'><span>{item.time}</span></div>
+          <div className='each-row-item'><span>{item.is_liked}</span></div>
           </div>
-          <div>
-            <button className="btn btn-primary" onClick={() => this.editItem(item)}>Edit</button>        
+          <div className='delete-edit'>
+            <div>
+              <button className="btn btn-primary delete" onClick={() => this.handleDelete(item)}> Delete </button>
+            </div>
+            <div>
+              <button className="btn btn-primary edit" onClick={() => this.editItem(item)}>Edit</button>        
+            </div>
           </div>
-        </div>
+        
       </div>
     ))
   };
@@ -139,12 +135,12 @@ class App extends Component{
             </div>
           </div>
         </div>
-        <ul className="list-group list-group-flush items">
+        <div className='items'>
           {this.renderItems()}
-        </ul>
-          {this.state.modal? (
-            <Modal activeItem={this.state.activeItem} toggle={this.toggle} onSave={this.handleSubmit}/>
-          ) : null}
+        </div>
+        {this.state.modal? (
+        <Modal activeItem={this.state.activeItem} toggle={this.toggle} onSave={this.handleSubmit}/>
+        ) : null}
       </main>
     )
   }
